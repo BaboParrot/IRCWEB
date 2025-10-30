@@ -99,7 +99,7 @@ body {
 .content {
   flex: 1;
   padding: 3rem 4rem;
-  background: #fff;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -119,7 +119,7 @@ article {
   display: block;
   margin: 1.5rem auto;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
 }
 
 
