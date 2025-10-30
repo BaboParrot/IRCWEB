@@ -8,33 +8,12 @@
   <script src="/assets/scripts/NavbarCloseLogic.js" defer></script>
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <h1 class="site-title">Sette opp IRC server på en Ubuntu-Server i Hyper-V </h1>
-      <div class="menu">
-        <div class="menu-section">
-          <button class="menu-toggle"> General information▾</button>
-          <ul class="menu-list">
-            <li><a href="../introduksjon/innhold.html">Innholdsfortegnelse</a></li>
-          </ul>
-        </div>
-        <div class="menu-section">
-          <button class="menu-toggle"> Steg-for-steg gjennomgang▾</button>
-          <ul class="menu-list">
-            <li><a href="../steg-for-steg/hyperv.html">Låse opp Hyper V</a></li>
-            <li><a class="active" href="../steg-for-steg/ubuntus.html">Ordne en Ubuntu Server</a></li>
-            <li><a href="../steg-for-steg/ubuntusystem.html">Sette opp Ubuntu Server Systemet</a></li>
-          </ul>
-      </div>
-    </aside>
-
-  
     <main class="content">
       <article>
-        <header>
+        <!-- <header>
           <a href="hyperv.html" class="nav-btn">←</a>
           <a href="ubuntusystem.html" class="nav-btn next">→</a>
-        </header>
+        </header> -->
 
         <h1>Sette opp en Ubuntu Server i windows</h1>
         <p>NB: Det er noen få krav man burde følge for å ha en Ubuntu Server. Sørg for at du utfyller disse kravene: </p>
@@ -81,23 +60,11 @@
 
         <p><br>7. Install operativ system fra Iso filen lastet ned tidligere på steg 2. Ubuntu 24.04.3 live server iso fil.  </p>
         <img src="../assets/images/stegforsteg/UbuntuServer/ubuntu11.png" alt="Iso" class="article-img">
-        <p><br>8. Klikk "Finish". Nå er den satt opp og klar til bruk! </p>
-        <header>
-          <a href="hyperv.html" class="nav-btn">←</a>
-          <a href="ubuntusystem.html" class="nav-btn next">→</a>
-        </header>
+        <p><br>8. Klikk "Finish".  </p>
+        
+        <h2>Nå er den satt opp og klar til bruk!</h2>
+        <p>Det neste blir å sette opp Ubuntu Server Systemet.</p>
       </article>
     </main>
-  </div>
-
-  <script>
-    document.querySelectorAll('.menu-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const list = button.nextElementSibling;
-        list.classList.toggle('open');
-        button.classList.toggle('open');
-      });
-    });
-  </script>
 </body>
 </html>
