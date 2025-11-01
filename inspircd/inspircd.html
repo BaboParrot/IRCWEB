@@ -9,10 +9,44 @@
 <body>
     <main class="content">
       <article>
-        <h1>inspircd</h1>
-        <h2>Steg 1: </h2>
-        <p>Gå </p>
-        <img src="../assets/images/part1/page1/pic#.png" alt="pic that i didnt edit" class="article-img">
+        <h1>Installasjon av inspIRCd</h1>
+        <h2>Steg 1: installer dependencies</h2>
+        <p>Kjør disse komandoene i ssh koblingen i command prompt:</p>
+        <p><code>1. sudo apt-get install git</code></p>
+        <p><code>2. sudo apt-get install perl</code></p>
+        <p><code>3. sudo apt-get install g++</code></p>
+        <p><code>4. sudo apt-get install make</code></p>
+        <p>Vi trenger <strong>git</strong> som versjonskontroll, <strong>Perl</strong> for å kjøre konfigurasjonsfilen, <strong>g++</strong> for å kompilere C++, og <strong>make</strong> for å automatisere byggingen av programvaren.</p>
+        <img src="../assets/images/stegforsteg/inspircdinstall/inspircdinstall1.png" alt="inspircd install 1" class="article-img">
+
+        <h2>hvis installasjonen stopper opp</h2>
+        <p>Noen ganger kan pakker mangle, være korrupte eller avhengighetene gå i konflikt. Her er noen steg du kan følge for å fikse vanlige problemer:</p>
+
+        <p>1. Oppdater pakkelisten<br>
+        Dette sikrer at systemet har den nyeste informasjonen om tilgjengelige pakker:</p>
+        <p><code>sudo apt update</code></p>
+
+        <p><br>2. Oppgrader eksisterende pakker<br>
+        Noen ganger må gamle pakker oppdateres før ny programvare kan installeres:</p>
+        <p><code>sudo apt upgrade</code></p>
+
+        <p><br>3. Rydd opp i ødelagte pakker<br>
+        Hvis det finnes ødelagte pakker, kan du forsøke å reparere dem:</p>
+        <p><code>sudo apt --fix-broken install</code></p>
+
+        <p><br>4. Rengjør pakkecachen<br>
+        Hvis installasjonen feiler på grunn av korrupt cache, kan dette hjelpe:</p>
+        <p><code>sudo apt clean</code></p>
+
+        <p><br>Etter å ha kjørt disse kommandoene kan du prøve å installere programvaren på nytt. Dette er ofte alt som trengs for å få systemet i orden igjen.</p>
+
+        <h2>Last ned inspIRCd</h2>
+        <p>Det finnes flere forskjellige måter å laste ned inspIRCd på. En lettvint en blir å hente en av versjonene fra github. Klikk linken og sjekk hvilken som er nyest.</p>
+        <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank">Latest Inspircd Release</a>
+
+        <p><br>1. last ned en av versjonene, helst den nyeste fra linken over. bytt v4.8.0. med den versjonen du vil ha. bruk dette formattet:</p>
+        <p><code>wget https://github.com/inspircd/inspircd/archive/v4.8.0.tar.gz</code></p>
+
 
       </article>
     </main>
