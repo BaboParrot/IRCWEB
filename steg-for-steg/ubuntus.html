@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building a One-Page Site</title>
   <link rel="stylesheet" href="../assets/style/style.css" />
   <script src="/assets/scripts/NavbarCloseLogic.js" defer></script>
 </head>
@@ -16,17 +15,17 @@
         </header> -->
 
         <h1>Sette opp en Ubuntu Server i windows</h1>
-        <p>NB: Det er noen få krav man burde følge for å ha en Ubuntu Server. Sørg for at du utfyller disse kravene: </p>
-           <h2>Maskinvarekrav</h2>
+        <p>NB: Før du begynner, sørg for at systemet ditt oppfyller kravene nedenfor.</p>
+        <h2>Maskinvarekrav</h2>
         <ul>
-          <li>Hyper-V opplåst</li>
+          <li>Hyper-V aktivert</li>
           <li>64-bit CPU</li>
-          <li>1-2 GB ram</li>
-          <li>Minst 10 Gb lagringsplass</li>
+          <li>1–2 GB RAM</li>
+          <li>Minst 10 GB lagringsplass</li>
         </ul>
 
         <h2>Steg 1: Søk i nettleseren etter ubuntu</h2>
-        <p>Gå i søkemotoren til windows og søk "ubuntu", deretter klikker du på "Get Ubuntu Server"</p>
+        <p>Gå til søkefeltet i Windows og skriv "ubuntu", deretter klikker du på "Get Ubuntu Server" for å åpne nedlastingssiden.</p>
         <img src="../assets/images/stegforsteg/UbuntuServer/ubuntu1.png" alt="ubuntu google" class="article-img">
 
         <h2>Steg 2: Last ned Ubuntu 24.04.3 LTS </h2>
@@ -46,10 +45,10 @@
         <p><br>2. Gi maskinen et passende navn</p>
         <img src="../assets/images/stegforsteg/UbuntuServer/ubuntu6.png" alt="ubuntu name" class="article-img">
 
-        <p><br>3. Velg generasjon. For dette prosjektet vil generasjon 1 funke. </p>
+        <p><br>3. Velg Generasjon 1. Denne fungerer fint for dette prosjektet, men Generasjon 2 kan også brukes hvis systemet ditt støtter UEFI.</p>
         <img src="../assets/images/stegforsteg/UbuntuServer/ubuntu7.png" alt="generasjon" class="article-img">
 
-        <p><br>4. Tildel den mimnne. Rundt 4096 MB er bra. "use dynamic memory for this virtual machine" kan være på.</p>
+        <p><br>4. Gi maskinen 4096 MB RAM. “Use Dynamic Memory for this virtual machine” kan være på.</p>
         <img src="../assets/images/stegforsteg/UbuntuServer/ubuntu8.png" alt="memory" class="article-img">
 
         <p><br>5. Konnekt den til den virtuelle switchen “ForVM”.  </p>
@@ -63,7 +62,8 @@
         <p><br>8. Klikk "Finish".  </p>
 
         <h2>Nå er den satt opp og klar til bruk!</h2>
-        <p>Det neste blir å sette opp Ubuntu Server Systemet.</p>
+        <p>Det neste blir å sette opp selve Ubuntu Server-systemet. </p>
+
       </article>
     </main>
 </body>

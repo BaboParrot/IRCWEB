@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building a One-Page Site</title>
   <link rel="stylesheet" href="../assets/style/style.css" />
   <script src="/assets/scripts/NavbarCloseLogic.js" defer></script>
 </head>
@@ -16,10 +15,25 @@
         </header> -->
 
         <h1>Ordne SSH kobling</h1>
-        <h2>Steg 1: </h2>
-        <p>Gå </p>
-        <img src="../assets/images/part1/page1/pic#.png" alt="pic that i didnt edit" class="article-img">
+        <h2>Steg 1: Logg inn </h2>
+        <p>Logg inn med brukernavn og passord som du opprettet under "Sette opp Ubuntu Server" (Steg 7). </p>
+        <img src="/assets/images/stegforsteg/SSH/ssh1.png" alt="ssh 1" class="article-img">
+        <h2>Steg 2: Sjekk om nettverket fungerer</h2>
+        <p>Skriv "ping 8.8.8.8" for å sjekke at nettverket fungerer. Hvis alt er korrekt konfigurert, vil du se svar som dette:</p>
+        <img src="/assets/images/stegforsteg/SSH/ssh2.png" alt="ssh 2" class="article-img">
 
+        <h2>Steg 3: Finn IP-adressen til den virtuelle maskinen</h2>
+        <p>Skriv "ip a" ELLER "hostname -I" for å finne IP-adressen. "hostname -I" er lettere å lese.</p>
+        <p>Du vil for eksempel se noe som dette: "173.30.78.234"</p>
+        <img src="/assets/images/stegforsteg/SSH/ssh3.png" alt="ssh 3" class="article-img">
+
+        <h2>Steg 4: Koble den til i Command Prompt</h2>
+        <p>1. Gå i Command Prompt på maskinen din (ikke den virtuelle).</p>
+        <p><br>2. Skriv "ssh brukernavn@IP-adresse", f.eks. "ssh nerutaa@172.30.78.234", deretter skriv "yes" og til slutt passordet du ga den.</p>
+        <img src="/assets/images/stegforsteg/SSH/ssh4.png" alt="ssh 4" class="article-img">
+
+        <h2>Nå er du ssh koblet til den virtuelle maskinen!</h2>
+        <p>Nå som du er SSH-koblet, betyr det at du kan fjernstyre den virtuelle maskinen fra din lokale maskin. Du kan kjøre kommandoer, redigere filer og administrere serveren uten å måtte sitte fysisk ved den virtuelle maskinen. Dette er spesielt nyttig for serveradministrasjon og skripting.</p>
       </article>
     </main>
 </body>
