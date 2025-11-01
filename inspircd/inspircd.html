@@ -40,12 +40,42 @@
 
         <p><br>Etter å ha kjørt disse kommandoene kan du prøve å installere programvaren på nytt. Dette er ofte alt som trengs for å få systemet i orden igjen.</p>
 
-        <h2>Last ned inspIRCd</h2>
+        <h2>Steg 2: Last ned inspIRCd</h2>
         <p>Det finnes flere forskjellige måter å laste ned inspIRCd på. En lettvint en blir å hente en av versjonene fra github. Klikk linken og sjekk hvilken som er nyest.</p>
         <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank">Latest Inspircd Release</a>
 
-        <p><br>1. last ned en av versjonene, helst den nyeste fra linken over. bytt v4.8.0. med den versjonen du vil ha. bruk dette formattet:</p>
+        <p><br>1. hent ned en av versjonene, helst den nyeste fra linken over. bytt v4.8.0. med den versjonen du vil ha. bruk dette formattet:</p>
         <p><code>wget https://github.com/inspircd/inspircd/archive/v4.8.0.tar.gz</code></p>
+        <p>disclaimer: jeg tar versjon 2.0.25 selv om den ikke er den nyeste.</p>
+
+        <p><br>2. Pakk det ut med: </p>
+        <p><code>tar xvf ./v.4.8.0.tar.gz</code></p>
+        <p>Dette gjør at vi har alle filene i en ny mappe med samme navn som versjonen.</p>
+
+        <h2>Steg 3: Konfigurering av inspIRCd</h2>
+        <p>1. Åpne mappen med kildekoden</p>
+        <p>Når du har pakket ut filen, må du gå inn i mappen som ble opprettet. Det gjør du med denne kommandoen:</p>
+        <p><code>cd inspircd-4.8.0</code></p>
+        <p><em>Merk:</em> Som nevnt tidligere, bytt ut <code>4.8.0</code> med versjonsnummeret du faktisk lastet ned. For meg er det for eksempel:</p>
+        <p><code>cd inspircd-2.0.25</code></p>
+        
+        <p><br>2. Start konfigurasjonen</p>
+        <p>Inne i InspIRCd-mappen, kjør denne kommandoen for å starte oppsettet:</p>
+        <p><code>perl ./configure</code></p>
+        <p>Du får noen spørsmål underveis – som oftest kan du bare trykke <kbd>Enter</kbd> for å fortsette. På slutten spør den om å sjekke for moduler, da kan du svare <code>y</code>.</p>
+        <img src="/assets/images/stegforsteg/inspircdinstall/inspircdinstall2.png" alt="inspircd install 2" class="article-img">
+
+        <p><br>3. Sjekk at konfigurasjonen ble riktig</p>
+        <p>Når alt er ferdig, vil du se en del linjer som bekrefter at systemet er klart:</p>
+        <img src="/assets/images/stegforsteg/inspircdinstall/inspircdinstall3.png" alt="inspircd install 3" class="article-img">
+        <p>Hvis du ser denne meldingen, kan du kjøre <code>make</code>. Det betyr at alt er satt opp som det skal.</p>
+
+        <h2>Feilsøking</h2>
+        <p> Hvis du får feil, sjekk at du har alle nødvendige pakker installert (<code>perl</code>, <code>make</code>, <code>g++</code> osv.) og prøv kommandoen <code>perl ./configure</code> igjen.</p>
+        <h2>Nå er installasjonen klar!</h2>
+        <p>Nå er konfigurasjonen ferdig, og du kan gå videre til å bygge selve InspIRCd-serveren.</p>
+
+
 
 
       </article>

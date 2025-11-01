@@ -321,12 +321,12 @@ header {
     padding: 2rem 1.5rem;
   }
 
-  code {
+}
+
+code {
     background-color: #f1f0f7; 
     padding: 2px 4px;         
     border-radius: 3px;       
     font-family: monospace;    
     font-size: 0.95em;        
-}
-
 }
