@@ -10,11 +10,75 @@
     <main class="content">
       <article>
         <h1>inspircd conf</h1>
-        <h2>Steg 1: </h2>
-        <p>Gå </p>
-        <img src="../assets/images/part1/page1/pic#.png" alt="pic that i didnt edit" class="article-img">
+        <h2>Steg 1: Bygg serveren </h2>
+        <p>Nå som du er ferdig med å konfigurere inspircd, kjør <code>make</code> for å bygge. </p>
+        <p>PS: denne prosessen kan ta litt tid, så gå å ta deg en pause.</p>
+        <img src="/assets/images/stegforsteg/inspircdconfig/inspircdconfig1.png" alt="inspircd config 1" class="article-img">
 
-      </article>
+        <h2>Steg 2: Installer serveren</h2>
+        <p>Når byggingen er ferdig, bruk kommandoen <code>make install</code> for å plassere filene på riktig sted på systemet.</p>
+        <p>Etter at installasjonen er ferdig, vil terminalen vise hvor alle filene er lagt. Dette gjør det enklere å starte og administrere serveren senere. Det kan være lurt og huske disse filplasseringene.</p>  
+        <img src="/assets/images/stegforsteg/inspircdconfig/inspircdconfig2.png" alt="inspircd config 2" class="article-img">
+
+        <h2>Steg 3: Konfigurer serveren</h2>
+        <p>1. Åpne config med “sudo nano /etc/inspircd/inspircd.conf og skriv passordet. </p>
+        <p><br>2. Bruk dette formattet: </p>
+        <pre><code> &lt;config format="xml"&gt; &lt;!-- la stå --&gt;
+    &lt;define name="bindip" value="1.2.2.3"&gt; 
+    &lt;define name="localips" value="&amp;bindip;/24"&gt; 
+
+    &lt;server &lt;!-- bytt --&gt;
+            name="SERVER_HOSTNAME"  
+            description="DESCRIPTION"  
+            id="SERVER_SID"   
+            network="NETWORK_NAME"&gt;  
+
+        &lt;admin &lt;!-- bytt info --&gt;
+            name="ADMIN"  
+            nick="ADMIN"  
+            email="ADMIN@gmail.com"&gt;  
+
+        &lt;bind &lt;!-- la stå --&gt;
+            address="0.0.0.0"  
+            port="6667"  
+            type="clients"&gt;  
+
+        &lt;files motd="/etc/inspircd/inspircd.motd"
+               rules="etc/inspircd/inspircd.rules"&gt; &lt;!-- la stå --&gt; 
+
+        &lt;power diepass="SERVER_KILL_PASSWORD" 
+               restartpass="SERVER_RESTART_PASSWORD" 
+               pause="2"&gt; &lt;!-- anbefaler å bytte --&gt;
+    &lt;/server&gt;
+&lt;/config&gt;</code></pre>
+          <p><br>3. tilpass konfigurasjonen</p>
+          <p>Du må endre på de stedene det er skrevet du skal endre på. Få de til å passe serveren din. Husk å lagre.</p>
+
+          <h2>Hvordan min konfigurasjon ser ut</h2>
+          <img src="/assets/images/stegforsteg/inspircdconfig/inspircdconfig3.png" alt="inspircd config 3" class="article-img">
+
+          <h2>Troubleshoot konfigurasjon</h2>
+          <p>Usikker på kommandoene? Lagre dokumentet med <code>ctrl + O</code> og <code>Enter</code> knappen, og så <code>ctrl + X</code> for å gå ut. Restart den med <code>sudo systemctl restart inspircd</code>. Anngi passord. Hvis ingenting viser på restart, så har det funket.  </p>
+
+          <h2>Steg 4:Starte Serveren</h2>
+          <p>1. For å starte severen for første gang eller ved endring, kjør denne kommandoen:</p>
+          <p><code>sudo systemctl restart inspircd</code></p>
+          <p><br>2. deretter skriv:</p>
+          <p><code>./inspircd start</code></p>
+          <p><br>3. Sjekk så statusen på serveren med <code>./inspircd status”</code>.</p>
+          <p>Da vil du se noe som dette:</p>
+          <img src="/assets/images/stegforsteg/inspircdconfig/inspircdconfig4.png" alt="inspircd config 4" class="article-img">
+          <img src="/assets/images/stegforsteg/inspircdconfig/inspircdconfig5.png" alt="inspircd config 5" class="article-img">
+          <p>Du vil også se en melding som sier noe som dette: <code>inspIRCd is now running as 'URCHOSENNAME.local'[2KX] with 1024 max open sockets</code></p>
+          
+          <h2>Troubleshoot startingen</h2>
+          <p> Hvis du kjører <code>./inspircd start</code> eller <code>./inspircd status</code> og det ikke fungerer, er det mest sannsynlig fordi du prøver å starte serveren fra en terminal uten riktige rettigheter eller utenfor installasjonskatalogen. </p>
+          <p>Når InspIRCd er installert som en systemtjeneste, håndterer <code>systemd</code> alle rettigheter og miljøvariabler, og derfor vil kommandoene fra kildekoden ikke alltid fungere.</p>
+          
+          <p><br>Prøv i stedet:</p>
+          <p><code>sudo systemctl start inspircd</code> og <code>sudo systemctl status inspircd</code></p>
+
+        </article>
     </main>
 </body>
 </html>
