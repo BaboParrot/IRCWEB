@@ -339,3 +339,11 @@ pre {
   overflow-y: auto;
   white-space: pre-wrap;
 }
+
+p.credit {
+    text-align: right;
+    font-style: italic;
+    color: #555;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
