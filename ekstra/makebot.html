@@ -14,11 +14,138 @@
           <a href="#" class="nav-btn next">→</a>
         </header> -->
 
-        <h1>Lage en bot</h1>
-        <h2>Steg 1: </h2>
-        <p>Gå </p>
-        <img src="../assets/images/part1/page1/pic#.png" alt="pic that i didnt edit" class="article-img">
+        <h1>Lage en IRC-bot</h1>
 
+        <h2>Steg 1: SSH inn i VM-en</h2>
+        <p>Kjør kommandoen <code>ssh [BRUKERNAVN]@[SERVER_IP]</code></p>
+        <p>For eksempel:  <code>ssh nerutaa@173.30.78.234</code></p>
+
+        <h2>Steg 2: Installer Python og nødvendige verktøy</h2>
+        <p>1. Sjekk om Python er installert:</p>
+        <code>python3 --version</code>
+
+        <p>2. Hvis Python ikke er installert, kjør:</p>
+        <code>sudo apt update && sudo apt install python3 -y</code>
+
+        <p>3. Installer pip (Python package manager):</p>
+        <code>sudo apt install python3-pip -y</code>
+
+        <p>4. Installer <code>venv</code>-modulen for virtuelle miljøer:</p>
+        <code>sudo apt install python3.12-venv -y</code>
+        <p>(bruk riktig versjon avhengig av hva <code>python3 --version</code> viser)</p>
+        <img src="/assets/images/stegforsteg/bot/bot1.png" alt="bot 1" class="article-img">
+
+        <h2>Steg 3: Sett opp et virtuelt miljø</h2>
+        <p>1. Opprett et virtuelt miljø:</p>
+        <code>python3 -m venv ~/[BOT_NAME]-env</code>
+        <p>For eksempel: <code>python3 -m venv ~/rulesbot-env</code></p>
+
+        <p>2. Aktiver miljøet:</p>
+        <code>source ~/[BOT_NAME]-env/bin/activate</code>
+        <p>For eksempel: <code>source ~/rulesbot-env/bin/activate</code></p>
+
+        <p>Når miljøet er aktivert, vil terminalprompten endres slik:</p>
+        <code>([BOT_NAME]-env) user@pc:~$</code>
+
+        <p>3. Installer IRC-pakken:</p>
+        <code>pip install irc</code>
+        <p>Du vil trenge det for å kjøre programmet på IRC.</p>
+        <img src="/assets/images/stegforsteg/bot/bot2.png" alt="bot 2" class="article-img">
+
+
+        <h2>Steg 4: Lag reglene</h2>
+        <p>1. Gå inn i config:</p>
+        <code>nano rulesbot.py</code>
+        <p> Her skriver du de reglene du ønsker at den skal følge med på. Dette er et eksempel: </p>
+        <pre><code>import irc.bot
+import random
+
+class RulesBot(irc.bot.SingleServerIRCBot):
+    def __init__(self, channel, nickname, server, port=6667):
+        super().__init__([(server, port)], nickname, nickname)
+        self.channel = channel
+        self.rules = [
+            "Welcome to the server! Please read the rules:",
+            "1. Be respectful to all users. No harassment or hate speech.",
+            "2. No spamming or flooding.",
+            "3. Keep content appropriate. No NSFW or offensive material.",
+            "4. Follow channel-specific rules.",
+            "5. Respect staff members.",
+            "6. No ban evasion or exploiting features.",
+            "Thanks for being cool!"
+        ]
+        self.bad_words = ['badword', 'dumb', 'unicorn']
+        self.super_bad_words = ['dawg', 'superbadword']
+        self.quote = "I bathe, therefore I exist"
+
+    def on_welcome(self, connection, event):
+        connection.join(self.channel)
+        print(f"Joined {self.channel}")
+
+    def on_pubmsg(self, connection, event):
+        message = event.arguments[0].lower()
+        nick = event.source.nick
+
+        # Commands
+        if message.strip() == "!rules":
+            for line in self.rules:
+                connection.privmsg(self.channel, line)
+            return
+
+        if message.strip() == "!quote":
+            connection.privmsg(self.channel, self.quote)
+            return
+
+        if message.strip() == "!dice":
+            roll = random.randint(1, 6)
+            connection.privmsg(self.channel, f"{nick} rolled a dice and got: {roll}")
+            return
+
+        # Super bad word filter — kicks the user
+        if any(word in message for word in self.super_bad_words):
+            connection.privmsg(self.channel, f"{nick}: You used a prohibited word and will be kicked!")
+            connection.kick(self.channel, nick, "No use of super bad language allowed!")
+            return
+
+        # Bad word filter — warns the user
+        if any(word in message for word in self.bad_words):
+            connection.privmsg(self.channel, f"{nick}: Please watch your language!")
+            return
+
+
+if __name__ == "__main__":
+    channel = "#chatroom"      # Endre til ditt kanalnavn
+    nickname = "RulesBot"      # Bot-navnet
+    server = "127.0.0.1"       # Endre til riktig IRC-server IP
+
+    bot = RulesBot(channel, nickname, server)
+    bot.start()
+          </code></pre>
+          <p>2. Når du er fornøyd med reglene må du huske å lagre med <code>Ctrl + O</code> og enter, og så <code>Ctrl + X</code> for å gå ut.</p>
+
+          <h2>Start botten</h2>
+          <p>1. Nå som du er ferdig med konfigurasjonen, start botten med:</p>
+          <code>python rulesbot.py</code>
+          <p>Du vil se at det funker ved at det kommer opp at den joiner chatten, og på grunn av en melding i command promptet.</p>
+          <img src="/assets/images/stegforsteg/bot/bot3.png" alt="bot 3" class="article-img">
+          <p><br>2. Lek litt rundt med funksjonene! basert på konfigurasjonen du har gjort, vil du ha en del av commands å utføre i serveren. </p>
+          <p>Hvis vi ser på min konfigurasjon er det: </p>
+          <p><code>!dice</code> for et tilfeldig nummer fra 1-6, <code>!rules</code> for regler som er spesifikk til det chatrommet, <code>!quote</code> for en quote!</p>
+          <p>Det er også chat regulering satt, som vil si at det er noen ord som man kan bli straffet for å bruke. Som et eksempel satt jeg <code>unicorn</code></p>
+          <img src="/assets/images/stegforsteg/bot/bot4.png" alt="bot 4" class="article-img">
+          <p>3. Hvis du vil at botten skal kunne banne eller kicke må du gi den rettighetene. Dette er noe bare de som har @ ved siden av navnet sitt kan gjøre med denne kommandoen:</p>
+          <p><code>/mode #[CHAT_NAME] +o [BOT_NAME]</code></p>
+          <img src="/assets/images/stegforsteg/bot/bot5.png" alt="bot 5" class="article-img">
+          <p>Vi ser at det første forsøket ikke funket fordi den ikke hadde rettighetene til det.</p>
+
+          <h2>Nyttige kommandoer</h2>
+          <p>1. Stoppe botten: Trykk <code>Ctrl + C</code> i terminalen.</p>
+          <p>2.Deaktivere det virtuelle miljøet: Kjør <code>deactivate</code> når du er ferdig.</p>
+          <p>3. Starte botten på nytt: Aktiver miljøet igjen med <code>source ~/[BOT_NAME]-env/bin/activate</code> og kjør <code>python3 rulesbot.py</code>.</p>
+          <p>4. Tips: Hvis du endrer koden i <code>rulesbot.py</code>, må du lagre og starte botten på nytt for at endringene skal tre i kraft.</p>
+
+          <h2>Nå er boten satt opp!</h2>
+          <p>Bra jobbet! Hvis du har fulgt alle stegene, har du nå en fungerende IRC-server med en Python-bot som kjører på en Ubuntu-server i Hyper-V.</p>
       </article>
     </main>
 </body>
