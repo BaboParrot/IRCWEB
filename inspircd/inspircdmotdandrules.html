@@ -9,11 +9,22 @@
 <body>
     <main class="content">
       <article>
-        <h1>inspircd motd & rules</h1>
-        <h2>Steg 1: </h2>
-        <p>Gå </p>
-        <img src="../assets/images/part1/page1/pic#.png" alt="pic that i didnt edit" class="article-img">
+        <h1>inspIRCd MOTD & Rules</h1>
+        <h2>Steg 1: Konfigurere Message Of The Day</h2>
+        <p>1. Åpne MOTD filen med: <code>sudo nano /etc/inspircd/motd</code> og anngi passordet ditt når du blir bedt om det. </p>
+        <p><br>2. Skriv meldingen du vil at brukere skal se når de kobler seg til serveren. Dette er min versjon. Jeg anbefaler å ikke bruke emojier for å holde retro-stilen.</p>
+        <img src="/assets/images/stegforsteg/motdandrules/motd1.png" alt="motd 1" class="article-img">
+       
+        <h2>Steg 2: Konfigurere Regler</h2>
+        <p>1. Åpne Rules filen med <code>sudo nano /etc/inspircd.rules</code></p>
+        <p>Lag noen regler du ønsker at skal bli fulgt på serveren din. for eksempel:</p>
+        <img src="/assets/images/stegforsteg/motdandrules/rules1.png" alt="rules 1" class="article-img">
 
+         <h2>Husk</h2>
+        <p>Lagre det med <code>Ctrl + O</code> og <code>Enter</code> og deretter <code>Ctrl + X</code> for å gå ut. Reload igjen med <code>sudo systemctl restart inspircd</code>. </p>
+
+        <h2>Nå er MOTD og Reglene klare!</h2>
+        <p>Det neste blir å komme inn i en irc-klient.</p>
       </article>
     </main>
 </body>
