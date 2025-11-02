@@ -10,9 +10,84 @@
     <main class="content">
       <article>
         <h1>Weechat</h1>
-        <h2>Steg 1: </h2>
-        <p>Gå </p>
-        <img src="../assets/images/part1/page1/pic#.png" alt="pic that i didnt edit" class="article-img">
+        <h2>Steg 1: Åpne weechat</h2>
+        <p>Åpne weechat med å skrive <code>weechat</code> i kommandofeltet.</p>
+        <img src="/assets/images/stegforsteg/chatroom/chatroom1.png" alt="weechat connect 1" class="article-img">
+
+        <h2>Steg 2: Legg til serveren</h2>
+        <p>1. Finn IP-adressen til serveren din[ip a]. For eksempel: <code>123.45.67.89</code></p>
+        <p>2. Inne i Weechat, skriv <code>/server add [SERVER_NAME] [SERVER_IP]/6667 -nossl</code>. Bytt det ut med informasjonen du brukte. Vi kjører <code>-nossl</code> for å skru av krypteringen.</p>
+        <p>3. Skriv <code>/connect [SERVER_NAME]</code></p>
+        <p>For meg ville dette vært <code>/connect nerutaa</code>.</p>
+        <p>4. Skriv /join #[ANY_CHATROOM_NAME]</p>
+        <p>Nå er du inne i et chatroom! Så lenge maskinen er på samme ip-adresse, kan du gå inn på den samme IRC-serveren fra andre maskiner! Dette er et eksempel der jeg har gått in fra 1. SSH, 2. WSL og 3. WSL fra en annen enhet! </p>
+        <img src="/assets/images/stegforsteg/chatroom/chatroom.jpg" alt="Eksempel bilde" class="article-img">
+
+        <h2>Problemer?</h2>
+        <p>Hvis det er noen problemer med å koble til, prøv:</p>
+        <pre><code>/set irc.server.[SERVER_NAME]</code></pre>
+        <pre><code>/set irc.server.[SERVER_NAME].tls off</code></pre>
+        <p><br>Det bør fikse det hvis tidligere konfig ikke skrudde av tls, som skjer noen ganger. Etter du har byttet er det bare å skrive <code>/save</code> og gå tilbake til originalvinduet til serveren. </p>
+        <p>Hvis det enda ikke funker, prøv også å skru av tls verify med “/set irc.server.nerutaa.tls_verify off”.  </p>
+        <p>Merk: Bruk kun -nossl og /set tls off hvis serveren ikke støtter kryptering.</p>
+
+        <img src="/assets/images/stegforsteg/chatroom/chatroom1.png" alt="Chatroom 1" class="article-img">
+
+        <p>For å gå ut av weechat bare skriv <code>/quit</code>. </p>
+        <p>Før det kan det være lurt å lagre for eksempel chatrooms eller serveren sånn at den holder seg oppe til neste gang. Dette kan du gjøre med:</p>
+        <pre><code>set irc.server.[SERVER_NAME].autoconnect on</code></pre>
+        <p>For chatrooms er det:</p>
+        <pre><code>/set irc.server.[SERVER_NAME].autojoin "#CHANNEL_NAME"</code></pre>
+        <p>Husk å save settings med <code>/save</code></p>
+
+        
+
+        <h2>Feilsøking</h2>
+        <p>Hvis du har lagt til en server feil eller vil starte på nytt med konfigurasjonen, kan du gjøre følgende:</p>
+
+        <h3>Slette en serverkobling</h3>
+        <p>For å fjerne en server du har lagt til:</p>
+        <pre><code>/server del [SERVER_NAME]</code></pre>
+        <p>Dette sletter koblingen helt. Du kan også liste alle servere med:</p>
+        <pre><code>/server list</code></pre>
+
+        <h3>Endre innstillinger for en server</h3>
+        <p>Hvis du trenger å skru av TLS eller endre port:</p>
+        <pre><code>/set irc.server.[SERVER_NAME].tls off
+        /set irc.server.[SERVER_NAME].port 6667</code></pre>
+        <p>Husk å lagre endringene med <code>/save</code>.</p>
+
+        <h3>Fjerne autoconnect eller autojoin</h3>
+        <p>Hvis du vil stoppe Weechat fra å automatisk koble til eller bli med i kanaler:</p>
+        <pre><code>/set irc.server.[SERVER_NAME].autoconnect off
+        /set irc.server.[SERVER_NAME].autojoin ""</code></pre>
+
+        <h3>Generell restart</h3>
+        <p>Hvis alt feiler, kan du lukke Weechat og starte på nytt:</p>
+        <pre><code>/quit
+        weechat</code></pre>
+        <p>Deretter legg til serveren på nytt med korrekte innstillinger.</p>
+
+        <h2>Nyttige Weechat-kommandoer for enklere bruk</h2>
+        <p>Her er noen kommandoer som gjør Weechat mer brukervennlig:</p>
+        <p>1. aktiver musestøtte (scroll, velg kanaler med mus) </p>
+        <pre><code>/set weechat.look.mouse on</code></pre>
+        <p><br>2. Aktiver farger i chat (hvis terminalen støtter det)</p>
+        <pre><code>/set weechat.look.color on</code></pre>
+        <p><br>3. Vis linjenummer og statuslinje</p>
+        <pre><code>/set weechat.bar.status.enabled on</code></pre>
+        <p><br>4. Aktiver logging av alle kanaler til filer</p>
+        <pre><code>/set logger.file.auto on</code></pre>
+        <p><br>5. Sett tekstbredde for bedre lesbarhet</p>
+        <pre><code>/set weechat.look.buffer_size 1000 </code></pre>
+        <p><br>6. Aktiver autocompletion for nick og kommandoer </p>
+        <pre><code>/set weechat.look.autocomplete on</code></pre>
+        <p><br>7. Skriv "/help" for å se flere kommandoer</p>
+        <pre><code>/help</code></pre>
+        <p>Husk å lagre innstillingene med <code>/save</code> så de beholdes neste gang du åpner Weechat.</p>
+
+        <h2>Nå er du konnektet og prosjektet er ferdig!</h2>
+        <p>Hvis du vil, kan det være lurt å se litt på hva annet du kan gjøre fra ekstra!</p>
       </article>
     </main>
 </body>
