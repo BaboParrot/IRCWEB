@@ -10,16 +10,58 @@
     <main class="content">
       <article>
         <h1>Oppsummering</h1>
-        <h2>Hva har vi gått igjennom? </h2>
-        <p>I dette prosjektet har vi aktivert Hyper-V på en stasjonær PC, opprettet en virtuell maskin med Ubuntu Server, og satt opp en fungerende IRC-server som kjører InspIRCd, testet via Weechat-klienter. Vi har også testet kommunikasjon mellom IRC-klienter på forskjellige maskiner.</p>
-        
-        <h2>Hvordan prosjetet har gått for meg</h2>
-        <p>Prosjektet har gått fint. Jeg syns det har vært både lærerikt og morsomt å jobbe med det. Alt var helt nytt for meg, så jeg lærte mye underveis. Selv om det ikke var en del av selve oppgaven, valgte jeg også å lage en egen IRC-bot i Python. Det var veldig gøy å få den til å fungere sammen med IRC-serveren!</p>
-        <p>Noe av det som var mest utfordrende med oppgaven var å finne de riktige kommandoene og scripts å bruke. Det finnes mange forskjellige måter å gjøre de samme tingene på i Linux, så det var forvirrende å vite hva som faktisk fungerer i det oppsettet man er i. En liten feil og så vil resten heller ikke fungere til du finner riktig kommando.</p>
-        <p>I stedet for å lage dokumentasjonen i InDesign, valgte jeg å lage en nettside. Det tok lang tid å få alt til å se ryddig og pent ut, spesielt med CSS og scripts til navigasjonen. Alt i alt, er jeg fornøyd med resultatet! Det ble en brukervennlig løsning som viser hele prosessen steg for steg.</p>
-        <p>Noe jeg kunne ha gjort bedre, er dokumentasjonen underveis. Det tok meg flere forsøk med enkelte kommandoer, og når jeg senere skulle overføre alt til nettsiden, var notatene litt rotete. Hvis jeg skulle gjort dette prosjektet igjen, ville jeg brukt mer tid på å planlegge og dokumentere grundigere med forklaringer og bilder underveis.</p>
-        <img src="/assets/images/stegforsteg/chatroom/chatroom.jpg" alt="bilde eksemepl" class="article-img">
-        <p class="credit">Nettsiden er laget av Nathalie K.S, 2025</p>
+
+        <section>
+          <h2>Hva har vi gått igjennom?</h2>
+          <p>
+            I dette prosjektet har vi aktivert Hyper-V på en stasjonær PC og opprettet en virtuell maskin som kjører Ubuntu Server. Deretter har vi installert og konfigurert InspIRCd for å sette opp en fungerende IRC-server. Kommunikasjonen ble testet på WeeChat-klienten på både vertsmaskinen og den virtuelle.
+          </p>
+          <p>
+            Underveis brukte vi SSH for å koble oss til serveren eksternt og utføre konfigurasjon direkte i terminalen. Som en del av prosjektet laget vi også en bot i Python som kobler seg på IRC-serveren, og kan utføre automatiserte handlinger.
+          </p>
+          <p>
+            Prosjektet har gitt praktisk erfaring med virtualisering, systemadministrasjon og nettverkskommunikasjon. Vi har lært hvordan flere teknologier kan samhandle for å bygge en fungerende digital infrastruktur fra oppsettet av den virtuelle maskinen til drift av nettverkstjenester.
+          </p>
+        </section>
+
+        <section>
+          <h2>Kilder</h2>
+          <ul>
+            <li>
+              Microsoft. (2025). <em>Hyper-V informasjon</em>. Microsoft Learn. Tatt fra:
+              <a href="https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/overview" target="_blank">
+                https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/overview
+              </a>  
+              <br><small>Brukt på siden <strong>Introduksjon til prosjektet</strong> for informasjon om hvordan Hyper-V fungerer og brukes i Windows.</small>
+            </li>
+            <p></p>
+            <li>
+              Canonical Ltd. (2025). <em>Ubuntu Server informasjon</em>. Ubuntu. Tatt fra:
+              <a href="https://ubuntu.com/server" target="_blank">
+                https://ubuntu.com/server
+              </a>  
+              <br><small>Brukt på siden <strong>Introduksjon til prosjektet</strong> for å forklare valg av operativsystem og serverfunksjoner.</small>
+            </li>
+            <p></p>
+            <li>
+              brGentoo Foundation. (2024). <em>WeeChat user guide</em>. Gentoo Wiki. Tatt fra:
+              <a href="https://wiki.gentoo.org/wiki/WeeChat" target="_blank">
+                https://wiki.gentoo.org/wiki/WeeChat
+              </a>  
+              <br><small>Brukt på siden <strong>Introduksjon til prosjektet</strong> som referanse for konfigurasjon og testing av IRC-klienten.</small>
+            </li>
+            <p></p>
+            <li>
+              InspIRCd Developers. (2025). <em>Latest InspIRCd release</em>. GitHub. Tatt fra:
+              <a href="https://github.com/inspircd/inspircd/releases/latest" target="_blank">
+                https://github.com/inspircd/inspircd/releases/latest
+              </a>  
+              <br><small>Brukt på siden <strong>Installasjon for InspIRCd</strong> som kilde for nedlasting av IRC-serveren.</small>
+            </li>
+          </ul>
+        </section>
+
+         <p class="source">Nettsiden er laget av Nathalie K.S, 2025</p>
       </article>
     </main>
 </body>
