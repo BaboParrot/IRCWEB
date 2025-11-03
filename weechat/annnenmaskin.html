@@ -20,15 +20,48 @@
             <li>Må være koblet til samme lokale nettverk som vertsmaskinen.</li>
         </ul>
 
-      <h2>Steg 1: last ned WSL</h2>
-      <p>1. Sørg for at Windows-undersystemet for Linux og plattformen for virtuell maskin er avmerket i <code>Turn Windows features on or off</code> </p>
-      <img src="/assets/images/stegforsteg/" alt="WSL1" class="article-img">
-      <p>2. Åpne Command Prompt og skriv:</p>
-      <code>wsl -install</code>
+      <h2>Steg 1: Installer WSL</h2>
+      <p>1. Åpne Powershell som administrator og skriv:</p>
+      <code>wsl --install</code>
+      <img src="/assets/images/stegforsteg/wsl/wsll1.png" alt="wsl 1" class="article-img">
+
+      <p><br>2. Skriv ønsket brukernavn og passord</p>
+      <img src="/assets/images/stegforsteg/wsl/wsl2.png" alt="wsl 2" class="article-img">
+
+      <p><br>3. Kjør <code>sudo apt update</code> og deretter installer weechat med:</p>
+      <code>sudo apt install weechat</code>
+      <img src="/assets/images/stegforsteg/wsl/wsl3.png" alt="wsl 3" class="article-img">
+
+      <p><br>4. Åpne weechat med å skrive "weechat" og legg til serveren din på samme måte som på forrige side:</p>
+      <code>/server add [SERVER_NAME] [SERVER_IP] 6667</code>
+      <p>Bytt ut [SERVER_NAME] og [SERVER_IP] og hvis du har endret på porten med det som passer for deg. </p>
+      <img src="/assets/images/stegforsteg/wsl/wsl4.png" alt="wsl 4" class="article-img">
+
+      <p><br>5. Kjør følgende kommandoer: </p>
+      <pre><code>/set irc.server.[SERVER_NAME]
+/set irc.server.[SERVER_NAME].tls off</code></pre>
+
+<p>6. Konnekt til serveren! Kjør /connect [SERVER_NAME]</p>
+
+      <h2>Problemer?</h2>
+      <p><strong>Hvis det er problemer med <code>wsl --install</code>:</strong></p>
+      <p>1. Sjekk at i "Turn Windows features on or off" at <code>Virtual Machine Platform</code> og <code>Windows subsystem for Linux</code> er huket av.</p>
+      <img src="/assets/images/stegforsteg/wsl/wsl1.png" alt="wsl 1 problem" class="article-img">
+      <p>2. Restart maskinen</p>
+      <p>3. Prøv å installer en bestemt distribusjon fra <code>wsl --list --online</code>. Eksempel:</p>
+      <p><code>wsl --install --d Ubuntu</code></p>
+  
+      <br>
+      <p><strong>Hvis det er problemer med å reconnecte:</strong></p>
+      <p>1. Dobbelsjekk at instillingene i <code>/set irc.server.[SERVER_NAME]</code> er på rett ip, og har tls av.</p>
+      <p>2. Prøv å skru av tls verify med <code>/set irc.server.[SERVER_NAME].tls_verify off</code></p>
+      <br>
+      <p><strong>Lagt til feil server eller konfigurert feil?</strong></p>
+      <p>1. Bare kjør <code>/server del [SERVER_NAME]</code> og prøv på nytt.</p>
 
 
-      <h2>Nå er du konnektet og prosjektet er ferdig!</h2>
-      <p>Hvis du vil, kan det være lurt å se litt på hva annet du kan gjøre fra ekstra!</p>
+      <h2>Nå er du koblet og prosjektet er ferdig!</h2>
+      <p>Det anbefales å se litt på hva annet du kan gjøre fra ekstra mappen!</p>
     </article>
   </main>
 </body>
